@@ -1,67 +1,105 @@
-#include <stdio.h>
+ #include <stdio.h>
 
-int main()
-{
-    int n, i;
-    float price, final_price;
-    float total_before = 0, total_after = 0;
-    char category;
+#include <stdlib.h>
 
-    // 1. قراءة عدد المنتجات
-    printf("Enter number of products: ");
-    scanf("%d", &n);
+int main () {
 
-    // 2. حلقة التكرار لكل منتج
-    for (i = 1; i <= n; i++)
-    {
-        printf("\nProduct %d:\n", i);
+int n;
 
-        printf("Price: ");
-        scanf("%f", &price);
+printf("Enter the number of prodects:");
 
-        printf("Category (A, B, C): ");
-        // ملاحظة: المسافة قبل %c ضرورية لتجاهل ضغطة زر Enter السابقة
-        scanf(" %c", &category);
+scanf("%d",&n);
 
-        // 3. رسالة الفئة باستخدام switch
-        switch (category)
-        {
-        case 'A':
-            printf("high category\n");
-            break;
-        case 'B':
-            printf("medium category\n");
-            break;
-        case 'C':
-            printf("basic category\n");
-            break;
-        default:
-            printf("Unknown category\n");
-        }
+if (n<0){
 
-        // 4. حساب الخصم باستخدام if
-        if (category == 'A')
-        {
-            final_price = price * 0.90; // خصم 10%
-        }
-        else if (category == 'B')
-        {
-            final_price = price * 0.95; // خصم 5%
-        }
-        else
-        {
-            final_price = price; // لا يوجد خصم
-        }
+printf("This is negative number");
 
-        // تجميع المجاميع
-        total_before = total_before + price;
-        total_after = total_after + final_price;
-    }
+}
 
-    // 5. الطباعة النهائية
-    printf("\n--- Result ---\n");
-    printf("Total price before discount: %.2f\n", total_before);
-    printf("Total price after discount: %.2f\n", total_after);
+int i;
 
-    return 0;
+int sum;
+
+sum = 0;
+
+int num;
+
+num = 0;
+
+for (i = 1; i <=n;i++){
+
+printf("What's the price of products %d\n",i);
+
+scanf("%d",&sum);
+
+num = num+sum;
+
+}
+
+
+int cat;
+
+printf("What's your category[1-A][2-B][3-C]:");
+
+scanf("%d",&cat);
+
+switch(cat){
+
+case 1:
+
+printf("A:hight category\n");
+
+break;
+
+case 2:
+
+printf("B:medium category\n");
+
+break;
+
+case 3:
+
+printf("C:basic category\n");
+
+break;
+
+}
+
+if (cat==1){
+
+int test;
+
+int res;
+
+test = (10*num)/100;
+
+res = num-test;
+
+
+printf("The price before discount:%d after:%d",num,res);
+
+
+}
+
+else if (cat==2){
+
+int res2;
+
+int test2;
+
+test2 = (5*num)/100;
+
+res2 = num-test2;
+
+printf("The price before discount:%d after:%d", num, res2);
+
+}
+
+else {
+
+printf("The final price:%d\n", num);
+
+}
+
+
 }
